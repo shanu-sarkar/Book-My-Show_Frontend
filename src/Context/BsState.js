@@ -32,7 +32,7 @@ const BsState = (props) => {
     // Sending api request to backend with user selected movie, slot and seats to book movie.
     const response = await fetch(
       // `https://book-my-show-backend-fh9v.vercel.app/api/booking`,
-      `https://book-my-show-backendss.vercel.app/api/booking
+      `http://localhost:8080/api/booking
       `,
       {
         method: "POST",
@@ -72,7 +72,7 @@ const BsState = (props) => {
   const handleGetLastBooking = async () => {
     const response = await fetch(
       // `https://book-my-show-backend-fh9v.vercel.app/api/booking`
-      `https://book-my-show-backendss.vercel.app/api/booking`,
+      `http://localhost:8080/api/booking`,
       {
         method: "GET",
       }
