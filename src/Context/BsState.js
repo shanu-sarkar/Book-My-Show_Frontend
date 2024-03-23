@@ -32,7 +32,8 @@ const BsState = (props) => {
     // Sending api request to backend with user selected movie, slot and seats to book movie.
     const response = await fetch(
       // `https://book-my-show-backend-fh9v.vercel.app/api/booking`,
-      `http://localhost:8080/api/booking`,
+      `https://book-my-show-backendss.vercel.app/api/booking
+      `,
       {
         method: "POST",
         headers: {
@@ -71,7 +72,7 @@ const BsState = (props) => {
   const handleGetLastBooking = async () => {
     const response = await fetch(
       // `https://book-my-show-backend-fh9v.vercel.app/api/booking`
-      `http://localhost:8080/api/booking`,
+      `https://book-my-show-backendss.vercel.app/api/booking`,
       {
         method: "GET",
       }
@@ -96,7 +97,7 @@ const BsState = (props) => {
     if(seats){
       changeNoOfSeats(seats);
     }
-  }, []);
+  });
 
   return (
     // provide all the required data to app.
@@ -125,4 +126,6 @@ export default BsState;
 
 // The Whole , component handle the movie booking application's state and passes the necessary 
 // data and functionalities to the child components via the BsContext context.
+
+
 
