@@ -24,16 +24,14 @@ const BsState = (props) => {
     D2: "",
     D3: "",
   });
-// This line uses the useState hook to set the state variable lastBookingDetails to null. This variable is used to the successful booking.
+  // This line uses the useState hook to set the state variable lastBookingDetails to null. This variable is used to the successful booking.
   const [lastBookingDetails, setLastBookingDetails] = useState(null);
 
   // handling post request to save booking details on the backend
   const handlePostBooking = async () => {
     // Sending api request to backend with user selected movie, slot and seats to book movie.
     const response = await fetch(
-      // `https://book-my-show-backend-fh9v.vercel.app/api/booking`,
-      `http://localhost:8080/api/booking
-      `,
+      `https://book-my-show-backendss44f.vercel.app/api/booking`,
       {
         method: "POST",
         headers: {
@@ -71,8 +69,7 @@ const BsState = (props) => {
   //This func sends a GET req to the backend to retrieve the details of the most recent successful booking. It updates the last lastBookingDetails state variable with the answer data.
   const handleGetLastBooking = async () => {
     const response = await fetch(
-      // `https://book-my-show-backend-fh9v.vercel.app/api/booking`
-      `http://localhost:8080/api/booking`,
+      `https://book-my-show-backendss44f.vercel.app/api/booking`,
       {
         method: "GET",
       }
@@ -88,16 +85,16 @@ const BsState = (props) => {
     const slot = window.localStorage.getItem("slot");
     const seats = JSON.parse(window.localStorage.getItem("seats"));
 
-    if(movie){
+    if (movie) {
       changeMovie(movie);
     }
-    if(slot){
+    if (slot) {
       changeTime(slot);
     }
-    if(seats){
+    if (seats) {
       changeNoOfSeats(seats);
     }
-  });
+  }, []);
 
   return (
     // provide all the required data to app.
@@ -116,16 +113,11 @@ const BsState = (props) => {
         setErrorPopup,
         errorMessage,
         setErrorMessage,
-      }}>
+      }}
+    >
       {props.children}
     </BsContext.Provider>
   );
 };
 
 export default BsState;
-
-// The Whole , component handle the movie booking application's state and passes the necessary 
-// data and functionalities to the child components via the BsContext context.
-
-
-
